@@ -842,7 +842,7 @@ bool IOLoginDataSave::savePlayerStatement(const std::shared_ptr<Player> &player,
 
 bool IOLoginDataSave::savePlayerNamesAndChangeName(const std::shared_ptr<Player> &player, const std::string &newName, const std::string &oldName) {
 	if (!player) {
-		g_logger().warn("[IOLoginData::savePlayerStatement] - Player nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::savePlayerNamesAndChangeName] - Player nullptr: {}", __FUNCTION__);
 		return false;
 	}
 
@@ -863,10 +863,6 @@ bool IOLoginDataSave::savePlayerNamesAndChangeName(const std::shared_ptr<Player>
 
 	if (!db.executeQuery(query.str())) {
 		return false;
-	}
-
-	if (player->isOnline()) {
-		player->removePlayer(true, true);
 	}
 
 	player->setName(newName);

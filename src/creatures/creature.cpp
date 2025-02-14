@@ -79,6 +79,17 @@ void Creature::setSkull(Skulls_t newSkull) {
 	g_game().updateCreatureSkull(static_self_cast<Creature>());
 }
 
+void Creature::updateInClient() {
+	auto spectators = Spectators().find<Player>(position);
+	if (spectators.empty()) {
+		return;
+	}
+
+	for (const auto &spectator : spectators) {
+		spectator->getPlayer()->sendUpdateTileCreature(getCreature());
+	}
+}
+
 int64_t Creature::getTimeSinceLastMove() const {
 	return lastStep ? OTSYS_TIME() - lastStep : std::numeric_limits<int64_t>::max();
 }

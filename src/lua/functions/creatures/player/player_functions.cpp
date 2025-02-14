@@ -4218,6 +4218,9 @@ int PlayerFunctions::luaPlayerChangeName(lua_State* L) {
 	const auto newName = Lua::getString(L, 2);
 	const auto oldName = player->getName();
 	IOLoginDataSave::savePlayerNamesAndChangeName(player, newName, oldName);
+
+	// update creature on screen
+	player->updateInClient();
 	return 1;
 }
 

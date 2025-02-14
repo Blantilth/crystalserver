@@ -184,6 +184,9 @@ int NpcFunctions::luaNpcSetName(lua_State* L) {
 	}
 
 	npc->setName(name);
+
+	// update creature on screen
+	npc->refreshInClient();
 	return 1;
 }
 

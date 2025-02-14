@@ -145,6 +145,8 @@ public:
 	virtual bool canSee(const Position &pos);
 	virtual bool canSeeCreature(const std::shared_ptr<Creature> &creature) const;
 
+	void updateInClient();
+
 	virtual RaceType_t getRace() const {
 		return RACE_NONE;
 	}
