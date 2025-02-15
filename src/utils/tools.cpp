@@ -2141,3 +2141,8 @@ uint8_t calculateMaxPvpReduction(uint8_t blessCount, bool isPromoted /* = false*
 std::string convertToUTF8(const std::string &input) {
 	return boost::locale::conv::to_utf<char>(input, "ISO-8859-1");
 }
+
+bool checkText(std::string text, std::string str) {
+	trimString(text);
+	return asLowerCaseString(text) == str;
+}

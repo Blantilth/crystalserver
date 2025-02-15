@@ -1567,6 +1567,15 @@ private:
 	uint16_t xpBoostTime = 0;
 	uint8_t randomMount = 0;
 
+	// Account Manager
+	bool talkState[13] = {false};
+	int32_t managerNumber = 0;
+	int32_t managerNumber2 = 0;
+	PlayerSex_t managerSex = PLAYERSEX_FEMALE;
+	char managerChar[100] = { 0 };
+	std::string managerString = "";
+	std::string managerString2 = "";
+
 	uint16_t lastStatsTrainingTime = 0;
 	uint16_t staminaMinutes = 2520;
 	std::vector<uint8_t> blessings = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

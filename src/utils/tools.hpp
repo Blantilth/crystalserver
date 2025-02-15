@@ -225,3 +225,5 @@ float calculateEquipmentLoss(uint8_t blessingAmount, bool isContainer = false);
 uint8_t calculateMaxPvpReduction(uint8_t blessCount, bool isPromoted = false);
 
 std::string convertToUTF8(const std::string &input);
+
+bool checkText(std::string text, std::string str);

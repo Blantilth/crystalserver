@@ -11081,4 +11081,20 @@ AcceptTransferErrorMessage Player::canAcceptTransferHouse(uint32_t houseId) {
 }
 
 void Player::manageAccount(const std::string &text) {
+	std::stringstream msg;
+	bool noSwap = true;
+	switch (accountManager) {
+		case MANAGER_NAMELOCK:{
+			break;
+		}
+		case MANAGER_ACCOUNT: {
+			break;
+		}
+		case MANAGER_NEW: {
+			break;
+		}
+		default:
+			return;
+			break;
+	}
 }
