@@ -11079,3 +11079,8 @@ AcceptTransferErrorMessage Player::canAcceptTransferHouse(uint32_t houseId) {
 	}
 	return Success;
 }
+
+
+void Player::manageAccount(const std::string &text) {
+
+}

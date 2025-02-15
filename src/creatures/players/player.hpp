@@ -122,6 +122,13 @@ struct OpenContainer {
 	uint16_t index;
 };
 
+enum AccountManager_t {
+	MANAGER_NONE,
+	MANAGER_NEW,
+	MANAGER_ACCOUNT,
+	MANAGER_NAMELOCK
+};
+
 using MuteCountMap = std::map<uint32_t, uint32_t>;
 
 static constexpr uint16_t PLAYER_MAX_SPEED = std::numeric_limits<uint16_t>::max();
@@ -222,6 +229,11 @@ public:
 	void setGUID(uint32_t newGuid);
 	uint32_t getGUID() const;
 	bool canSeeInvisibility() const override;
+
+	void manageAccount(const std::string &text);
+	bool isAccountManager() const {
+		return (accountManager != MANAGER_NONE);
+	}
 
 	void setDailyReward(uint8_t reward);
 
@@ -1614,6 +1626,7 @@ private:
 	Faction_t faction = FACTION_PLAYER;
 	QuickLootFilter_t quickLootFilter {};
 	PlayerPronoun_t pronoun = PLAYERPRONOUN_THEY;
+	AccountManager_t accountManager = MANAGER_NONE;
 
 	bool chaseMode = false;
 	bool secureMode = true;

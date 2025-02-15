@@ -445,6 +445,11 @@ public:
 	virtual bool isAttackable() const {
 		return true;
 	}
+
+	virtual bool isAccountManager() const {
+		return false;
+	}
+
 	virtual Faction_t getFaction() const {
 		return FACTION_DEFAULT;
 	}

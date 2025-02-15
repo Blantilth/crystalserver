@@ -6249,6 +6249,15 @@ void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type, c
 		return;
 	}
 
+	if (player->isAccountManager()) {
+		if (muteTime > 0) {
+			player->removeMessageBuffer();
+		}
+
+		internalCreatureSay(player, TALKTYPE_SAY, text, false);
+		return;
+	}
+
 	if (!text.empty() && text.front() == '/' && player->isAccessPlayer()) {
 		return;
 	}
@@ -6447,6 +6456,12 @@ bool Game::internalCreatureTurn(const std::shared_ptr<Creature> &creature, Direc
 bool Game::internalCreatureSay(const std::shared_ptr<Creature> &creature, SpeakClasses type, const std::string &text, bool ghostMode, Spectators* spectatorsPtr /* = nullptr*/, const Position* pos /* = nullptr*/) {
 	if (text.empty()) {
 		return false;
+	}
+
+	const auto &player = creature->getPlayer();
+	if (player && player->isAccountManager() && !ghostMode) {
+		player->manageAccount(text);
+		return true;
 	}
 
 	if (!pos) {
