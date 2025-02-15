@@ -1568,7 +1568,7 @@ private:
 	uint8_t randomMount = 0;
 
 	// Account Manager
-	bool talkState[13] = {false};
+	bool talkState[13] = { false };
 	int32_t managerNumber = 0;
 	int32_t managerNumber2 = 0;
 	PlayerSex_t managerSex = PLAYERSEX_FEMALE;

@@ -11084,7 +11084,7 @@ void Player::manageAccount(const std::string &text) {
 	std::stringstream msg;
 	bool noSwap = true;
 	switch (accountManager) {
-		case MANAGER_NAMELOCK:{
+		case MANAGER_NAMELOCK: {
 			break;
 		}
 		case MANAGER_ACCOUNT: {
